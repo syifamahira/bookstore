@@ -1,30 +1,38 @@
-<html> 
+<html>
 <head>
     <title>Syifa Bookstore</title>
-    </head>
-    <body style="background-color: yellow;">
+</head>
+<body style="background-color: pink;">
 
-    <h1 style="color: black;"><i><big>Syifa</big> Bookstore</i></h1>
-    
-    <p style="color: black;">Welcome, feel free to browse through our catalogues!</p>
-   
-    <h4> Our books</h4>
-    <ul>
-        <h5> Title: </h5>
-        <p>{{ title }}</p>
-        <h5> Author: </h5>
-        <p>{{ author }}</p>
-        <h5> Genre: </h5>
-        <p>{{ genre }}</p>
-        <h5> Price: </h5>
-        <p>{{ price }}</p>
-        <h5> Amount: </h5>
-        <p>{{ amount }}</p>
-        <h5> Synopsis: </h5>
-        <p>{{ synopsis }}</p>
+<h1 style="color: black;"><i><big>Syifa</big> Bookstore</i></h1>
 
-    </ul>
+<p style="color: black;">Welcome, feel free to browse through our catalogues!</p>
+
+<h3 style="color: midnightblue">Our books</h3>
+
+{% for book in books %}
+    <h5>Title:</h5>
+    <p>{{ book.title }}</p>
+
+    <h5>Author:</h5>
+    <p>{{ book.author }}</p>
+
+    <h5>Genre:</h5>
+    <p>{{ book.genre }}</p>
+
+    <h5>Price:</h5>
+    <p>{{ book.price }}</p>
+
+    <h5>Amount:</h5>
+    <p>{{ book.amount }}</p>
+
+    <h5>Synopsis:</h5>
+    <p>{{ book.synopsis }}</p>
+
+    {% if not forloop.last %}
+        <hr>
+    {% endif %}
+{% endfor %}
+
+</body>
 </html>
-
-
-
