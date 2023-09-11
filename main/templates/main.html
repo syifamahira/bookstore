@@ -1,6 +1,24 @@
 <html>
 <head>
     <title>Syifa Bookstore</title>
+    <style>
+        .book-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .book-box {
+            border: 4px solid #ffffff; 
+            padding: 20px;
+            width: 40%;
+        }
+
+        .book-image {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
 </head>
 <body style="background-color: pink;">
 
@@ -8,31 +26,33 @@
 
 <p style="color: black;">Welcome, feel free to browse through our catalogues!</p>
 
-<h3 style="color: midnightblue">Our books</h3>
+<h3 style="color: midnightblue\">Our books</h3>
 
-{% for book in books %}
-    <h5>Title:</h5>
-    <p>{{ book.title }}</p>
+<div class="book-list">
+    {% for book in books %}
+    <div class="book-box">
+        
 
-    <h5>Author:</h5>
-    <p>{{ book.author }}</p>
+        <h5>Title:</h5>
+        <p>{{ book.title }}</p>
 
-    <h5>Genre:</h5>
-    <p>{{ book.genre }}</p>
+        <h5>Author:</h5>
+        <p>{{ book.author }}</p>
 
-    <h5>Price:</h5>
-    <p>{{ book.price }}</p>
+        <h5>Genre:</h5>
+        <p>{{ book.genre }}</p>
 
-    <h5>Amount:</h5>
-    <p>{{ book.amount }}</p>
+        <h5>Price:</h5>
+        <p>{{ book.price }}</p>
 
-    <h5>Synopsis:</h5>
-    <p>{{ book.synopsis }}</p>
+        <h5>Amount:</h5>
+        <p>{{ book.amount }}</p>
 
-    {% if not forloop.last %}
-        <hr>
-    {% endif %}
-{% endfor %}
+        <h5>Synopsis:</h5>
+        <p>{{ book.synopsis }}</p>
+    </div>
+    {% endfor %}
+</div>
 
 </body>
 </html>
