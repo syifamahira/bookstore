@@ -15,8 +15,6 @@ syifa bookstore menyediakan katalog berisi buku-buku yang dapat dibeli di syifa 
 -  Saya meng-config routing url aplikasi main di berkas urls.py pada direktori proyek bookstore 
 - Saya membuat 4 test : 
         - test_main_html_url_exists : cek apakah url ada
-        - test_main_xml_url_exists : cek apakah url xml ada, gada jadi harusnya responnya 404 not found
-        - test_main_json_url_exists : cek apakah url json ada, gada jadi harusnya responnya 404 not found 
         - test_view_html : test view main.html, responnya harus bisa menampilkan berkas main.html
 
 2. ![baganpbp](https://github.com/syifamahira/bookstore/assets/80321089/1a52cf45-900b-44f0-b12b-646e8c5019d1)
