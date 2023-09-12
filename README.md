@@ -1,3 +1,5 @@
+link deploy app : https://syifa-bookstore.adaptable.app
+
 1. Saya mengerjakan checklist tugas 2 melalui tahapan berikut:
 - Pertama saya membuat repo baru di github berjudul bookstore, lalu saya juga membuat direktori baru di laptop saya dan menginisiasi git agar terhubung dengan repo github
 - Saya membuat virtual environment di direktori bookstore dan mengaktifkan env
