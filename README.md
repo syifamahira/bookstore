@@ -13,11 +13,11 @@ syifa bookstore menyediakan katalog berisi buku-buku yang dapat dibeli di syifa 
 -  Saya membuat templates yang berisi main.html sebagai design tampilan website yang ingin saya buat
 -  Saya membuat fungsi show_main di berkas views.py untuk memasukkan value sesuai model Book yang sudah dibuat tadi, dan memakai fungsi render juga untuk me-render tampilan HTML
 -  Saya meng-config routing url aplikasi main di berkas urls.py pada direktori proyek bookstore 
-- Saya membuat 4 test : 
-        - test_main_html_url_exists : cek apakah url ada
-        - test_main_xml_url_exists : cek apakah url xml ada, gada jadi harusnya responnya 404 not found
-        - test_main_json_url_exists : cek apakah url json ada, gada jadi harusnya responnya 404 not found 
-        - test_view_html : test view main.html, responnya harus bisa menampilkan berkas main.html
+- Saya membuat 4 test :
+  1. test_main_html_url_exists : cek apakah url ada
+  2. test_main_xml_url_exists : cek apakah url xml ada, gada jadi harusnya responnya 404 not found
+  3. test_main_json_url_exists : cek apakah url json ada, gada jadi harusnya responnya 404 not found
+  4. test_view_html : test view main.html, responnya harus bisa menampilkan berkas main.html
 
 2. ![baganpbp](https://github.com/syifamahira/bookstore/assets/80321089/1a52cf45-900b-44f0-b12b-646e8c5019d1)
      Alurnya pertama request oleh user akan diproses melalui urls yang akan memilih view yang telah didefisinikan oleh developer di views.py. views akan memamnggil query ke models jika membutuhkan keterlibatan database dan query nya akan dikembalikan lagi hasilnya ke views. Kemudian setelah request selesai diproses, hasil prosesnya akan dipetakan ke berkas html yang sesuai di dalam template, dan terakhir request akan ditampilkan dalam bentuk halaman web ke user.
