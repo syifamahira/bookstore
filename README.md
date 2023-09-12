@@ -13,7 +13,7 @@ syifa bookstore menyediakan katalog berisi buku-buku yang dapat dibeli di syifa 
 -  Saya membuat templates yang berisi main.html sebagai design tampilan website yang ingin saya buat
 -  Saya membuat fungsi show_main di berkas views.py untuk memasukkan value sesuai model Book yang sudah dibuat tadi, dan memakai fungsi render juga untuk me-render tampilan HTML
 -  Saya meng-config routing url aplikasi main di berkas urls.py pada direktori proyek bookstore 
-- Saya membuat 4 test : 
+- Saya membuat 2 test : 
         - test_main_html_url_exists : cek apakah url ada
         - test_view_html : test view main.html, responnya harus bisa menampilkan berkas main.html
 
