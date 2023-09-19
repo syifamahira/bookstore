@@ -1,31 +1,43 @@
-link deploy app : https://syifa-bookstore.adaptable.app
-syifa bookstore menyediakan katalog berisi buku-buku yang dapat dibeli di syifa bookstore.
+# Syifa Bookstore
+> Syifa Bookstore adalah website yang berisi katalog buku tersedia. Terdapat informasi terkait buku seperti judul, penulis, genre, harga dan lain-lain.
 
-1. Saya mengerjakan checklist tugas 2 melalui tahapan berikut:
-- Pertama saya membuat repo baru di github berjudul bookstore, lalu saya juga membuat direktori baru di laptop saya dan menginisiasi git agar terhubung dengan repo github
-- Saya membuat virtual environment di direktori bookstore dan mengaktifkan env
-- Saya meng-install django dan modul lain dengan menambahkan berkas requreiments.txt di direktori
--  membuat proyek django dengan nama sama seperti direktori saya yaitu bookstore
--  Saya menambahkan berkas .gitignore di direktori bookstore
--  Saya membuat aplikasi baru bernama main didalam proyek bookstore di direktori bookstore, setelah itu saya mendaftarkan aplikasi main di berkas settings.py dengan menambahkan 'main' ke variabel INSTALLED_APPS
--  Saya membuat class Book di berkas models.py yang terdiri dari title(name) (CharField), author(CharField), genre(CharField), price(IntegerField), amount(IntegerField), dan synopsis(TextField)
--  Saya melakuan migrasi model untuk mengubah struktur basis data sesuai model yang saya buat
--  Saya membuat templates yang berisi main.html sebagai design tampilan website yang ingin saya buat
--  Saya membuat fungsi show_main di berkas views.py untuk memasukkan value sesuai model Book yang sudah dibuat tadi, dan memakai fungsi render juga untuk me-render tampilan HTML
--  Saya meng-config routing url aplikasi main di berkas urls.py pada direktori proyek bookstore 
-- Saya membuat 2 test : 
-        - test_main_html_url_exists : cek apakah url ada
-        - test_view_html : test view main.html, responnya harus bisa menampilkan berkas main.html
+### Perbedaan POST dan GET
+Form **POST** digunakan untuk mengirim data ke server dengan cara yang tidak terlihat oleh pengguna. Data ini umumnya digunakan untuk mengirim data sensitif seperti kata sandi dan tidak muncul di URL. Form POST digunakan dalam tindakan yang mengubah data di server, seperti membuat, memperbarui, atau menghapus data.
 
-2. ![baganpbp](https://github.com/syifamahira/bookstore/assets/80321089/1a52cf45-900b-44f0-b12b-646e8c5019d1)
-     Alurnya pertama request oleh user akan diproses melalui urls yang akan memilih view yang telah didefisinikan oleh developer di views.py. views akan memamnggil query ke models jika membutuhkan keterlibatan database dan query nya akan dikembalikan lagi hasilnya ke views. Kemudian setelah request selesai diproses, hasil prosesnya akan dipetakan ke berkas html yang sesuai di dalam template, dan terakhir request akan ditampilkan dalam bentuk halaman web ke user.
+Form **GET** mengirim data ke server sebagai bagian dari URL. Data yang dikirim melalui form GET akan terlihat di URL, sehingga dapat dibaca oleh siapa saja yang melihatnya. Form GET digunakan untuk mengambil data dari server tanpa mengubahnya, seperti saat melakukan pencarian atau filtrasi data.
 
-3. Dengan menggunakan Virtual Environment, kita memastikan bahwa setiap proyek terisolasi dari satu sama lain sehingga memungkinkan kita untuk bekerja di berbagai proyek tanpa menganggu yang lainnya. Selain itu, pemeliharaan proyek dapat menjadi lebih mudah dan lebih aman.
-Bisa saja kita membuat aplikasi Django tanpa Virtual Environment, namun hal tersebut dapat menimbulkan risiko yang tidak diinginkan. Tanpa Virtual Environment, proyek-proyek berbagi ketergantungan yang sama, sehingga dapat menyebabkan konflik yang kemudian akan membuat rentan dan kacau proyek.
+### Perbedaan XML, JSON, HTML 
+1. XML :
+- Digunakan untuk menggambarkan dan menyimpan data dalam bentuk hierarki.
+- Tidak memiliki struktur tetap dan dapat disesuaikan dengan kebutuhan.
+- Cocok untuk pertukaran data antara aplikasi yang berbeda dan memiliki dukungan yang baik untuk metadata.
+- Lebih berat dalam hal ukuran file dan kompleksitas dibandingkan dengan JSON dan HTML.
 
-4.
-- MVC memisahkan aplikasi menjadi tiga komponen utama: Model (data dan logika), View (tampilan), dan Controller (pengendali). Model mengelola data, View mengatur tampilan, dan Controller mengatur interaksi pengguna.
-- MVT adalah varian dari MVC yang digunakan dalam kerangka kerja Django. MVT memiliki Model (data), View (tampilan), dan Template (pola tampilan). Model mengelola data, View mengontrol logika tampilan, dan Template mengatur tampilan HTML.
-- MVVM adalah pola desain yang digunakan terutama dalam pengembangan aplikasi berbasis antarmuka pengguna (UI). Ini memisahkan aplikasi menjadi Model (data), View (tampilan), dan View Model (penghubung antara Model dan View). View Model memungkinkan binding dua arah antara Model dan View.
+2. JSON :
+- Digunakan untuk menyimpan dan mengirim data dalam format ringkas dan mudah dibaca oleh manusia.
+- Terutama digunakan dalam pengembangan aplikasi web dan RESTful APIs.
+- Lebih ringan dibandingkan dengan XML dan lebih mudah diproses oleh JavaScript.
+- Terbatas dalam dukungan terhadap metadata dibandingkan dengan XML.
 
-Perbedaannya terletak pada detail implementasi dan fokus penggunaan masing-masing pola, namun ketiganya bertujuan untuk memisahkan logika bisnis dari tampilan dalam pengembangan aplikasi.
+3. HTML:
+- Digunakan untuk membuat struktur dan konten halaman web.
+- Tidak dirancang untuk pertukaran data atau representasi data yang kaya, tetapi lebih untuk menampilkan informasi dalam bentuk halaman web yang dapat diakses oleh pengguna.
+- Menggunakan markup untuk menampilkan konten, seperti teks, gambar, tautan, dan elemen-elemen lainnya.
+- Terutama digunakan untuk tujuan presentasi dan interaksi pengguna dengan aplikasi web.
+
+### Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?
+JSON sering digunakan dalam pertukaran data antara aplikasi web modern karena format yang ringkas, mudah dipahami oleh manusia, dan kompatibel dengan banyak bahasa pemrograman serta platform.
+
+### _Step-by-step_ pengerjaan
+1. Pertama saya membuat berkas base.html sebagai template untuk tampilan html lain di proyek saya
+2. Saya mendaftarkan template di settings.py milik bookstore di proyek bookstore saya
+3. Saya memodifikasi berkas main.html agar sesuai dengan skeleton base.html
+4. Saya membuat form baru untuk menerima data produk baru dengan nama forms.py
+5. Saya membuat fungsi create_product di views.py pada main untuk menambahkan data produk setelah di submit, setelah itu saya meng-import fungsi dan menambahkan path url nya
+6. Saya membuat berkas create_product.html untuk mendapatkan produk
+7. Saya memodifikasi kode di main.html agar data produk yang diterima ditampilkan dalam bentuk table, dan menambahkan tombol add product yang terhubung ke form
+8. Saya membuat fungsi show_xml, show_json, show_xml_by_id dan show_json_by_id. Hasilnya berisi parameter data hasil query
+9. Saya meng=import fungsi yang sudah dibuat tadi dan menambahkan path url nya
+10. Selesai, run servernya di main,json,xml,json_by_id atau xml_by_id
+
+### Postman
