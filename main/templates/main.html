@@ -1,6 +1,6 @@
-<html>
-    
-<head>
+{% extends "base.html" %}
+
+{% block meta %}
     <title>Syifa Bookstore</title>
     <style>
         .book-list {
@@ -20,41 +20,50 @@
             height: auto;
         }
     </style>
-</head>
-<body style="background-color: pink;">
+{% endblock meta %}
 
-<h1 style="color: black;"><i><big>Syifa</big> Bookstore</i></h1>
+{% block content %}
+    <body style="background-color: pink;">
 
-<p style="color: black;">Welcome, feel free to browse through our catalogues!</p>
+    <h1 style="color: black;"><i><big>Syifa</big> Bookstore</i></h1>
 
-<h3 style="color: midnightblue\">Our books</h3>
+    <p style="color: black;">Welcome, feel free to browse through our catalogues!</p>
 
-<div class="book-list">
-    {% for book in books %}
-    <div class="book-box">
-        
+    <h3 style="color: midnightblue;">Our books</h3>
 
-        <h5>Title:</h5>
-        <p>{{ book.title }}</p>
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Genre</th>
+            <th>Price</th>
+            <th>Amount</th>
+            <th>Synopsis</th>
+            <th>Date Added</th>
+        </tr>
 
-        <h5>Author:</h5>
-        <p>{{ book.author }}</p>
+        {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
 
-        <h5>Genre:</h5>
-        <p>{{ book.genre }}</p>
+        {% for product in products %}
+            <tr>
+                <td>{{ product.title }}</td>
+                <td>{{ product.author }}</td>
+                <td>{{ product.genre }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.amount }}</td>
+                <td>{{ product.synopsis }}</td>
+                <td>{{ product.date_added }}</td>
+            </tr>
+        {% endfor %}
+    </table>
 
-        <h5>Price:</h5>
-        <p>{{ book.price }}</p>
+    <br />
 
-        <h5>Amount:</h5>
-        <p>{{ book.amount }}</p>
-
-        <h5>Synopsis:</h5>
-        <p>{{ book.synopsis }}</p>
-    </div>
-    {% endfor %}
-</div>
-
-</body>
-</html>
-
+    <a href="{% url 'main:create_product' %}">
+        <button>
+            Add New Product
+        </button>
+    </a>
+    
+    </body>
+{% endblock content %}
