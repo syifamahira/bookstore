@@ -41,3 +41,22 @@ JSON sering digunakan dalam pertukaran data antara aplikasi web modern karena fo
 10. Selesai, run servernya di main,json,xml,json_by_id atau xml_by_id
 
 ### Postman
+1. HTML
+   ![image](https://github.com/syifamahira/bookstore/assets/80321089/00ad3e74-89cf-4de5-b77d-2e1cdc678b27)
+2. XML
+   ![image](https://github.com/syifamahira/bookstore/assets/80321089/44f2992a-fe35-4a4a-8528-0d876d01cd4b)
+3. JSON
+   ![image](https://github.com/syifamahira/bookstore/assets/80321089/8d5f4b08-d3b4-4e46-832b-eae45c908145)
+4. JSON by ID
+   ![image](https://github.com/syifamahira/bookstore/assets/80321089/5cc993a5-5dc0-4b3d-9c2a-2357a2b1ee2f)
+5. XML by ID
+   ![image](https://github.com/syifamahira/bookstore/assets/80321089/a8cfaf71-cca8-4a88-b7fc-163ab1d9ce0a)
+
+
+
+
+   
+
+
+
+   
