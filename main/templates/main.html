@@ -38,7 +38,7 @@
 
     <h1 style="color: black;"><i><big>Syifa</big> Bookstore</i></h1>
 
-    <p style="color: black;">Welcome, feel free to browse through our catalogues!</p>
+    <p style="color: black;">Welcome {{name}}, feel free to shop through our catalogues!</p>
 
     <h3 style="color: midnightblue;">Our books</h3>
 
@@ -71,6 +71,12 @@
     <a href="{% url 'main:create_product' %}">
         <button>
             Add New Product
+        </button>
+    </a>
+    <h5>Sesi terakhir login: {{ last_login }}</h5>
+    <a href="{% url 'main:logout' %}">
+        <button>
+            Logout
         </button>
     </a>
     
