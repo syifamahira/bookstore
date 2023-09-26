@@ -85,3 +85,25 @@ def login_user(request):
 def logout_user(request):
     logout(request)
     return redirect('main:login')
+
+# BONUS
+def add_product(request, product_id):
+    if request.method == 'POST' and 'Plus' in request.POST:
+        product = Product.objects.get(id = product_id)
+        product.amount += 1
+        product.save()
+    return HttpResponseRedirect(reverse('main:show_main'))
+
+def decrement_product(request, product_id):
+    if request.method == 'POST' and 'Minus' in request.POST:
+        product = Product.objects.get(id = product_id)
+        if product.amount > 0 :
+            product.amount -= 1
+        product.save()
+    return HttpResponseRedirect(reverse('main:show_main'))
+
+def remove_product(request, product_id):
+    if request.method == 'POST' and 'Delete' in request.POST:
+        product = Product.objects.get(id = product_id)
+        product.delete()
+    return HttpResponseRedirect(reverse('main:show_main'))
