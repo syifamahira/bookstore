@@ -5,48 +5,89 @@
 {% endblock meta %}
 
 {% block content %}
-
 <style>
-    .login {
-        width: 300px; /* set width*/
-        margin: 0 auto; /* taro di center*/
+
+    /*ubah warna teks input*/
+    input[type=text], input[type=password] {
+        background-color: #FCB7BA;
+        color: black;
+        border: 2px solid #000;
+    }
+
+    body{
+        background-color: #96A856;
+    }
+
+    .centered {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #FFECC1;
+        color: black;
+        padding: 20px;
+        text-align: center;
+        border: 2px solid #000;
+        margin: 0;
+        font-family: 'Indie Flower';
+        font-size: 24px;
+    }
+
+    .centered-title{
+        font-size: 36px;
+        
+    }
+    
+    .background {
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #FCB7BA;
+        padding: 10px;
+        border: 2px solid #000;
+        margin-top: 0;
     }
 </style>
 
-<div class="login">
-
-    <h1>Login</h1>
-
-    <form method="POST" action="">
-        {% csrf_token %}
-        <table>
-            <tr>
-                <td>Username: </td>
-                <td><input type="text" name="username" placeholder="Username" class="form-control"></td>
-            </tr>
-                    
-            <tr>
-                <td>Password: </td>
-                <td><input type="password" name="password" placeholder="Password" class="form-control"></td>
-            </tr>
-
-            <tr>
-                <td></td>
-                <td><input class="btn login_btn" type="submit" value="Login"></td>
-            </tr>
-        </table>
-    </form>
-
-    {% if messages %}
-        <ul>
-            {% for message in messages %}
-                <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}     
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
         
-    Don't have an account yet? <a href="{% url 'main:register' %}">Register Now</a>
+            <div class="centered" style="width: 400px; height: 300px;"> 
+                <h5 class="centered-title">Login</h5>
+                
+                <div class="background" style="width: 400px; height: 300px;"> 
+                    <form method="POST" action="">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username:</label>
+                            <input type="text" id="username" name="username" placeholder="Username" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password:</label>
+                            <input type="password" id="password" name="password" placeholder="Password" class="form-control">
+                        </div>
+                        <div class="text-center">
+                            <input class="btn btn-primary" type="submit" value="Login" style="background-color: #FFECC1; color: #000; border: 2px solid #000;">
+                        </div>                        
+                    </form>
 
+                    {% if messages %}
+                    <ul>
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}     
+                    
+                <p style="font-size: 16px;">Don't have an account yet? <a href="{% url 'main:register' %}">Register Now</a></p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
 </div>
-
 {% endblock content %}
