@@ -1,107 +1,73 @@
+
 {% extends "base.html" %}
 
 {% block meta %}
     <title>Syifa Bookstore</title>
-    <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: pink;
-        }
-
-        .book-title {
-            font-size: 20px;
-            font-weight: bold;
-        }
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
-
-        table, th, td {
-            border: 1px solid #000;
-            padding: 10px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #ccc;
-        }
-
-        tr {
-            background-color: #fff;
-        }
-    </style>
+</style>
 {% endblock meta %}
 
 {% block content %}
-    <body style="background-color: pink;">
+    <div class="container mt-5">
+        <h1 class="text-center"><i>Syifa Bookstore</i></h1>
 
-    <h1 style="color: black;"><i><big>Syifa</big> Bookstore</i></h1>
+        <p class="text-center">Welcome {{ name }}, feel free to shop through our catalogues!</p>
 
-    <p style="color: black;">Welcome {{name}}, feel free to shop through our catalogues!</p>
+        <h3 class="text-center">Our books</h3>
 
-    <h3 style="color: midnightblue;">Our books</h3>
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Genre</th>
+                        <th>Price</th>
+                        <th>Amount</th>
+                        <th>Synopsis</th>
+                        <th>Date Added</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for product in products %}
+                        <tr>
+                            <td>{{ product.title }}</td>
+                            <td>{{ product.author }}</td>
+                            <td>{{ product.genre }}</td>
+                            <td>${{ product.price }}</td>
+                            <td>
+                                <form action="{% url 'main:add_product' product.id %}" method="post">
+                                    {% csrf_token %}
+                                    <button class="btn btn-primary btn-sm" type="submit" name="Plus">+</button>
+                                </form>
+                                {{ product.amount }}
+                                <form action="{% url 'main:decrement_product' product.id %}" method="post">
+                                    {% csrf_token %}
+                                    <button class="btn btn-primary btn-sm" type="submit" name="Minus">-</button>
+                                </form>
+                            </td>
+                            <td>{{ product.synopsis }}</td>
+                            <td>{{ product.date_added }}</td>
+                            <td>
+                                <form action="{% url 'main:remove_product' product.id %}" method="post">
+                                    {% csrf_token %}
+                                    <button class="btn btn-danger btn-sm" type="submit" name="Delete">Delete</button>
+                                </form>
+                                <a href="{% url 'main:edit_product' product.pk %}" class="btn btn-info btn-sm">Edit</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
 
-<table>
-    <tr>
-        <th>Title</th>
-        <th>Author</th>
-        <th>Genre</th>
-        <th>Price</th>
-        <th>Amount</th>
-        <th>Synopsis</th>
-        <th>Date Added</th>
-    </tr>
+        <div class="text-center">
+            <a href="{% url 'main:create_product' %}" class="btn btn-success">Add New Product</a>
+        </div>
 
-    {% for product in products %}
-        <tr>
-            <td>{{ product.title }}</td>
-            <td>{{ product.author }}</td>
-            <td>{{ product.genre }}</td>
-            <td>{{ product.price }}</td>
-            <td>
-                <form action="{% url 'main:add_product' product.id %}" method="post">
-                    {% csrf_token %}
-                    <button style="color: black; font-weight: bolder; align-items: center" type="submit" name="Plus">
-                        +
-                    </button>
-                </form>
-                {{ product.amount }}
-                <form action="{% url 'main:decrement_product' product.id %}" method="post">
-                    {% csrf_token %}
-                    <button style="color: black; font-weight: bolder; align-items: center" type="submit" name="Minus">
-                        -
-                    </button>
-                </form>
-            </td>
-            <td>{{ product.synopsis }}</td>
-            <td>{{ product.date_added }}</td>
-            <td>
-                <form action="{% url 'main:remove_product' product.id %}" method="post">
-                    {% csrf_token %}
-                    <button style="color: black; font-weight: bolder; align-items: center" type="submit" name="Delete">
-                        Delete
-                    </button>
-                </form>
-            </td>
-        </tr>
-    {% endfor %}
-</table>
-
-
-    <br />
-
-    <a href="{% url 'main:create_product' %}">
-        <button>
-            Add New Product
-        </button>
-    </a>
-    <h5>Sesi terakhir login: {{ last_login }}</h5>
-    <a href="{% url 'main:logout' %}">
-        <button>
-            Logout
-        </button>
-    </a>
-    
-    </body>
+        <div class="text-center mt-3">
+            <h5>Sesi terakhir login: {{ last_login }}</h5>
+            <a href="{% url 'main:logout' %}" class="btn btn-danger">Logout</a>
+        </div>
+    </div>
 {% endblock content %}
