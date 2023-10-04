@@ -30,6 +30,7 @@ Bootstrap: Bootstrap adalah framework CSS yang menyediakan sejumlah komponen dan
 - Pertama saya menambahkan bootsrap CSS dan Js di base.html
 - Saya mendesain login page dengan menggunakan CSS, sebelumnya saya meng-import font baru di base.html agar bisa digunakan di berkas html saya lainnya
 - Saya mendesain dengan cara membuat class di <style> dan mengimplementasikannya di dalam kode
+- Saya membuat navbar di main page yang berisi nama app nya dan tombol logout menggunakan bootstrap
 - Terakhir saya mengerjakan bonus, caranya dengan membuat class custom row dan memanggilnya di for-loop if last row baru diimplementasikan
   
 
