@@ -1,19 +1,69 @@
 {% extends 'base.html' %} 
 
 {% block content %}
-<h1>Add New Product</h1>
+<style>
 
-<form method="POST">
-    {% csrf_token %}
-    <table>
-        {{ form.as_table }}
-        <tr>
-            <td></td>
-            <td>
-                <input type="submit" value="Add Product"/>
-            </td>
-        </tr>
-    </table>
-</form>
+    /*ubah warna teks input*/
+    input[type=text], input[type=text],input[type=text], input[type=number], input[type=number], input[type=paragraph_text] {
+        background-color: #FCB7BA;
+        color: black;
+        border: 2px solid #000;
+    }
+
+    body{
+        background-color: #96A856;
+    }
+
+    .centered {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #FFECC1;
+        color: black;
+        padding: 20px;
+        text-align: center;
+        border: 2px solid #000;
+        margin: 0;
+        font-family: 'Indie Flower';
+        font-size: 24px;
+    }
+
+    .centered-title{
+        font-size: 36px;
+        color :#000
+        
+    }
+    
+    .background {
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #FCB7BA;
+        padding: 10px;
+        border: 2px solid #000;
+        margin-top: 0;
+    }
+</style>
+
+<div class="centered">
+    <h5 class="centered-title">Add New Product</h5>
+    
+    <div class="background">
+        <form method="POST">
+            {% csrf_token %}
+            <table>
+                {{ form.as_table }}
+                <tr>
+                    <td></td>
+                    <td>
+                        <input class="submit-button" type="submit" value="Add Product"/>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
 
 {% endblock %}
