@@ -7,6 +7,9 @@ from main.views import add_product
 from main.views import decrement_product
 from main.views import remove_product
 from main.views import edit_product
+from main.views import get_product_json
+from main.views import add_product_ajax
+
 
 
 app_name = 'main'
@@ -24,5 +27,7 @@ urlpatterns = [
     path('add_product/<int:product_id>/', add_product, name='add_product'),
     path('decrement_product/<int:product_id>/', decrement_product, name='decrement_product'),
     path('remove_product/<int:product_id>/',remove_product, name='remove_product'),
-    path('edit_product/<int:product_id>/', edit_product, name='edit_product')
-]
+    path('edit_product/<int:product_id>/', edit_product, name='edit_product'),
+    path('get-product/', get_product_json, name='get_product_json'),
+    path('create-product-ajax/', add_product_ajax, name='add_product_ajax')
+    ]
