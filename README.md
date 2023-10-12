@@ -1,6 +1,8 @@
 # Syifa Bookstore
 > Syifa Bookstore adalah website yang berisi katalog buku tersedia. Terdapat informasi terkait buku seperti judul, penulis, genre, harga dan lain-lain.
 
+link deploy : syifa-mahira-tugas.pbp.cs.ui.ac.id
+
 ### Perbedaan antara asynchronous programming dan synchronous programming**:
    - Asynchronous programming memungkinkan tugas-tugas untuk berjalan secara bersamaan tanpa harus menunggu yang satu selesai sebelum yang lain dimulai, sedangkan synchronous programming berjalan secara berurutan.
    
@@ -14,11 +16,15 @@
    - Fetch API adalah teknologi baru dalam JavaScript yang lebih ringan dan terintegrasi dengan standar web modern. jQuery adalah library yang lebih besar dan memiliki fitur lebih banyak. Namun, dalam banyak kasus, menggunakan Fetch API adalah lebih baik karena lebih efisien dalam hal ukuran dan kinerja, serta lebih modern. Pilihan tergantung pada kebutuhan proyek, tetapi Fetch API adalah pilihan yang lebih disarankan untuk proyek-proyek baru.
 
 ### _Step-by-step_ Pengerjaan
-- Pertama saya menambahkan bootsrap CSS dan Js di base.html
-- Saya mendesain login page dengan menggunakan CSS, sebelumnya saya meng-import font baru di base.html agar bisa digunakan di berkas html saya lainnya
-- Saya mendesain dengan cara membuat class di <style> dan mengimplementasikannya di dalam kode
-- Saya membuat navbar di main page yang berisi nama app nya dan tombol logout menggunakan bootstrap
-- Terakhir saya mengerjakan bonus, caranya dengan membuat class custom row dan memanggilnya di for-loop if last row baru diimplementasikan
+- Saya membuat fungsi untk mengembalikan data JSON supaya bisa menampilkan data produk pada HTML
+- Membuat fungsi untuk menambahkan produk baru ke basis data dengan AJAX
+- me routing fungsi tersebut di urls.py main
+- Mengganti struktur table
+- Membuat blok script
+- Membuat fungsi getProducts(), refreshProducts()
+- Menambahkan kode untuk mengimplementasikan bootstrap
+- Kemudian saya membuat fungsi addProduct() di script untuk menambahkan data berdasarkan input ke basis data secara AJAX
+- Selesai
   
 
 
